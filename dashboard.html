@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LMS - Dashboard</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="container">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">`
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">LMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-12">
+                <label class="fw-bold" for="SearchText">Enter the name of course to search</label>
+                <input id="SearchText" type="text" class="form-control">
+            </div>
+            <div class="col-12 mt-2">
+                <button class="float-end btn btn-success btn-lg">Search</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-3">
+                <h2 class="border-bottom fw-bold">Categories</h2>
+                <ul class="list-group">
+                    <!-- <a href="codewithmind.com"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Web Development
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Database Development
+                        <span class="badge bg-primary rounded-pill">2</span>
+                    </a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Desktop Development
+                        <span class="badge bg-primary rounded-pill">1</span>
+                    </a> -->
+                </ul>
+            </div>
+            <div class="col-lg-8 courses">
+                <h2 class="border-bottom fw-bold">Courses</h2>
+                <div id="courses"></div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="scripts/jquery.js"></script>
+    <script>
+        //Checking if DOM is ready!
+        $(function ()
+        {
+
+            //Categories Section
+            let categories = [];
+
+            function loadCategories()
+            {
+                let categoryNames = ['Web', 'Databases', 'Desktop'];
+                for (let index = 0; index < categoryNames.length; index++)
+                {
+                    let category = {
+                        id: index + 1,
+                        name: categoryNames[index]
+                    }
+                    categories.push(category);
+                }
+            }
+
+            function displayCategories()
+            {
+                for (let index = 0; index < categories.length; index++)
+                {
+                    let row = `<a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-id=${categories[index].id}>
+                        ${categories[index].name}
+                        <span class="badge bg-primary rounded-pill">${index}</span>
+                    </a>`;
+                    $('.list-group').append(row);
+                }
+            }
+
+            loadCategories();
+            displayCategories();
+
+            //Courses Section
+            let Courses = [];
+
+            function loadCourses()
+            {
+                let courseNames = ['HTML', 'SQL', 'Xamarine'];
+                for (let index = 0; index < courseNames.length; index++)
+                {
+                    let course = {
+                        id: index + 1,
+                        name: courseNames[index]
+                    }
+                    Courses.push(course);
+                }
+            }
+
+            function displayCourses()
+            {
+                for (let index = 0; index < Courses.length; index++)
+                {
+                    let row = `<div class="card m-2 p-2">
+                    <div class="card-header">
+                        <h3>${Courses[index].name}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquam
+                            cupiditate, molestias ratione dolor quod atque beatae officia, accusamus aut voluptatibus
+                            modi mollitia vitae nesciunt hic optio blanditiis ut voluptatum.
+                        </div>
+                        <a href="" class="card-link">Card Link</a>
+                    </div>
+                </div>`;
+                    $('#courses').append(row);
+                }
+            }
+
+            loadCourses();
+            displayCourses();
+
+            // JQuery API
+            //Select.API_CALL
+            $('.list-group-item').on('click', function (event)
+            {
+                event.preventDefault();
+
+                let element = $(this);
+                console.log(element.data('id'));
+            })
+        });
+    </script>
+
+</body>
+
+</html>

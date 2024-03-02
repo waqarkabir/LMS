@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LMS - Contact</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="container">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">LMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+
+            </ol>
+        </nav>
+
+
+        <section class="row border p-2">
+            <article class="col-6 p-5">
+                <h4>Nice to hear your feedback</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus voluptate eius itaque, dolores
+                    minus, dignissimos ab non nulla at repellat temporibus iste debitis. Debitis autem aut, neque
+                    recusandae nesciunt quaerat?</p>
+            </article>
+            <article class="col-6 border p-2">
+                <fieldset>
+                    <legend>Fill Contact Form</legend>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactNumber" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="contactNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarks" class="form-label">Remarks</label>
+                        <textarea type="textarea" rows="3" class="form-control" id="remarks"></textarea>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                </fieldset>
+            </article>
+        </section>
+
+        <section class="row border mt-2 mb-2">
+            <div class="col-12" id="map">
+                <h4>Locate Us...</h4>
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425289.9905019645!2d72.75644595453755!3d33.6162509433323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515c3bdb02b6!2sIslamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1709315234054!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
