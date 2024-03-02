@@ -38,7 +38,7 @@
             </div>
         </nav>
     </header>
-    <main class="container">
+    <main class="container mt-2">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -80,7 +80,10 @@
             </div>
             <div class="col-lg-8 courses">
                 <h2 class="border-bottom fw-bold">Courses</h2>
-                <div id="courses"></div>
+                <div id="courses">
+                    <h2 class="p-5">
+                        <--- Choose a category or search for courses...</h2>
+                </div>
             </div>
         </div>
     </main>
@@ -129,43 +132,48 @@
             displayCategories();
 
             //Courses Section
-            let Courses = [];
+            let Courses = [{
+                id: 1,
+                name: "C#",
+                categoryId: 1
+            }, {
+                id: 2,
+                name: "JavaScript",
+                categoryId: 1
+            }, {
+                id: 3,
+                name: "SQL Server",
+                categoryId: 2
+            }, {
+                id: 4,
+                name: "Xamarine",
+                categoryId: 3
+            }];
 
-            function loadCourses()
+            function displayCourses(categoryId)
             {
-                let courseNames = ['HTML', 'SQL', 'Xamarine'];
-                for (let index = 0; index < courseNames.length; index++)
-                {
-                    let course = {
-                        id: index + 1,
-                        name: courseNames[index]
-                    }
-                    Courses.push(course);
-                }
-            }
-
-            function displayCourses()
-            {
+                $('#courses').html('');
                 for (let index = 0; index < Courses.length; index++)
                 {
-                    let row = `<div class="card m-2 p-2">
-                    <div class="card-header">
-                        <h3>${Courses[index].name}</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquam
-                            cupiditate, molestias ratione dolor quod atque beatae officia, accusamus aut voluptatibus
-                            modi mollitia vitae nesciunt hic optio blanditiis ut voluptatum.
-                        </div>
-                        <a href="" class="card-link">Card Link</a>
-                    </div>
-                </div>`;
-                    $('#courses').append(row);
+                    if (Courses[index].categoryId == categoryId)
+                    {
+                        let row = `
+                        <div class="card m-2 p-2">
+                            <div class="card-header">
+                                <h3>${Courses[index].name}</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquam
+                                    cupiditate, molestias ratione dolor quod atque beatae officia, accusamus aut voluptatibus
+                                    modi mollitia vitae nesciunt hic optio blanditiis ut voluptatum.
+                                </div>
+                                <a href="/Course/${Courses[index].id}" class="card-link">Card Link</a>
+                            </div>
+                        </div>`;
+                        $('#courses').append(row);
+                    }
                 }
             }
-
-            loadCourses();
-            displayCourses();
 
             // JQuery API
             //Select.API_CALL
@@ -174,7 +182,7 @@
                 event.preventDefault();
 
                 let element = $(this);
-                console.log(element.data('id'));
+                displayCourses(element.data("id"));
             })
         });
     </script>
