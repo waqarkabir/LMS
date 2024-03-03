@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LMS - Home</title>
     <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/global.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,9 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="admin/index.html">Admin</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
                         </li>
                         <li class="nav-item">
@@ -36,7 +41,10 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="account/login.html">Login</a>
+                            <a class="nav-link" aria-current="page" href="account/login.html" id="login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="account/logout.html" id="logout">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -46,14 +54,14 @@
     <main class="container">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
             <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+                <h1 class="display-5 fw-bold">Learning Management System</h1>
                 <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one
                     in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it
                     to your liking.</p>
-                <button class="btn btn-primary btn-lg" type="button">Example button</button>
+                <button class="btn btn-primary btn-lg" type="button">Start Learning</button>
             </div>
         </div>
-
+        <h3 class="border-bottom border-light fw-bold">Featured Courses</h3>
         <div class="row mb-5">
             <div class="col-4">
                 <div class="card">
