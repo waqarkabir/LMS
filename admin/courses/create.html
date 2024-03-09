@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Create New Course</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+
+    <header class="container">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">LMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/admin/users.html">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/admin/courses.html">Courses</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/account/login.html" id="login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/account/logout.html" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="/admin/courses.html">Courses</a></li>
+                <li class="breadcrumb-item active" aria-current="page">New Course</li>
+
+            </ol>
+        </nav>
+
+        <h3 class="border-bottom border-light">Course Details</h3>
+
+        <form action="/courses/create" method="post" id="frmCreate">
+            <div class="row">
+                <div class="col-lg-12 form-group mb-2">
+                    <label for="Title" class="form-label fw-bold">
+                        Title
+                    </label>
+                    <input type="text" value="C#" id="Title" name="Title" class="form-control">
+                </div>
+                <div class="col-lg-12 form-group mb-2">
+                    <label for="Description" class="form-label fw-bold">
+                        Description
+                    </label>
+                    <textarea id="Description" name="Description" class="form-control" rows="3"
+                        cols="4">Test C# Test C# Test C#Test C#Test C# Test C# Test C# Test C# Test C# Test C# Test C#</textarea>
+                </div>
+                <div class="col-lg-9 form-group mb-2">
+                    <label for="category" class="form-label fw-bold">
+                        Category
+                    </label>
+                    <select id="Category" name="Category" class="form-select select2">
+                        <option value="0">Select from list </option>
+                        <option value="1">Web</option>
+                        <option value="2">Desktop</option>
+                        <option value="3">Database</option>
+                        <option value="4">Mobile</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 form-group mb-2">
+                    <label for="Fee" class="form-label fw-bold">
+                        Fee
+                    </label>
+                    <input type="number" id="Fee" name="Fee" class="form-control">
+                </div>
+                <div class="col-lg-3 form-group mb-2">
+                    <label for="CreatedOn" class="form-label fw-bold">
+                        Created On
+                    </label>
+                    <input type="date" id="CreatedOn" name="CreatedOn" class="form-control">
+                </div>
+                <div class="col-lg-3 form-group mb-2">
+                    <label for="duration" class="form-label fw-bold">
+                        Duration
+                    </label>
+                    <input type="number" id="duration" name="duration" class="form-control">
+                </div>
+                <div class="col-lg-3 form-group mb-2">
+                    <label for="Labs" class="form-label fw-bold">
+                        Labs
+                    </label>
+                    <input type="number" id="Labs" name="Labs" class="form-control">
+                </div>
+                <div class="col-lg-3 form-group mb-2">
+                    <label for="Lectures" class="form-label fw-bold">
+                        Lectures
+                    </label>
+                    <input type="number" id="Lectures" name="Lectures" class="form-control">
+                </div>
+                <div class="col-lg-6 form-group mb-2">
+                    <input type="checkbox" id="IsFeatured" name="IsFeatured" class="form-check-input">
+                    <label for="IsFeatured" class="form-check-label fw-bold">
+                        Is a featured course?
+                    </label>
+                </div>
+                <div class="col-lg-6 form-group mb-2">
+                    <input type="checkbox" id="IsActive" name="IsActive" class="form-check-input">
+                    <label for="IsActive" class="form-check-label fw-bold">
+                        Is an active course?
+                    </label>
+                </div>
+                <div class="col-lg-12">
+                    <label for="Levels"></label>
+                    <div class="form-check">
+                        <input value="1" checked class="form-check-input" type="radio" name="Levels" id="Level-1">
+                        <label class="form-check-label" for="Level-1">
+                            Basic
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input value="2" class="form-check-input" type="radio" name="Levels" id="Level-2">
+                        <label class="form-check-label" for="Level-2">
+                            Intermediate
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input value="3" class="form-check-input" type="radio" name="Levels" id="Level-3">
+                        <label class="form-check-label" for="Level-3">
+                            Advance
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-2">
+            <div class="col-lg-12 form-group">
+                <button type="submit" id="BtnSubmit" class="float-end mt-2 btn btn-success">
+                    Save Changes
+                </button>
+            </div>
+            </div>
+        </form>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/scripts/course-create.js"></script>
+    <script>
+        $(function ()
+        {
+            // In your Javascript (external .js resource or <script> tag)
+            $(document).ready(function ()
+            {
+                $('.select2 ').select2({
+                    placeholder: 'Select an option'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
