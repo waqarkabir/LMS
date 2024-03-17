@@ -30,20 +30,8 @@ function ValidInteger(value)
 btn.addEventListener("click", function ()
 {
     // alert("btn clicked!");
-
-    var resultMessage = document.getElementById("resultMessage");
-    var percentageMessage = document.getElementById("percentage");
-    var gradeMessage = document.getElementById("grade");
-
-    function EmptyResultFields()
-    {
-        resultMessage.textContent = "";
-        percentageMessage.textContent = "";
-        gradeMessage.textContent = "";
-    }
-    EmptyResultFields();
     var subject = document.getElementById("course").value;
-    // var attendance = document.querySelector('input[name="attendance"]:checked').value;
+    var attendance = document.querySelector('input[name="attendance"]:checked').value;
     // var attendanceOptions = document.querySelectorAll('input[name="attendance"]');
     // for (const attendance of attendanceOptions)
     // {
@@ -54,75 +42,91 @@ btn.addEventListener("click", function ()
 
     //     }
     // }
-    var totalMarks = parseInt(document.getElementById("totalMarks").value);
-    var obtainedMarks = parseInt(document.getElementById("obtainedMarks").value);
-    // alert("totalmarks:" + totalMarks);
-    if (!ValidInteger(totalMarks) || !ValidInteger(obtainedMarks))
+    if (attendance == 1)
     {
-        result = "";
-        percentage = "";
-        grade = "";
-        alert("Please fill required fields correctly");
+        var resultMessage = document.getElementById("resultMessage");
+        var percentageMessage = document.getElementById("percentage");
+        var gradeMessage = document.getElementById("grade");
+
+        function EmptyResultFields()
+        {
+            resultMessage.textContent = "";
+            percentageMessage.textContent = "";
+            gradeMessage.textContent = "";
+        }
         EmptyResultFields();
-        return false;
-    }
 
-    if (totalMarks < obtainedMarks)
-    {
-        EmptyResultFields();
-        alert("Total marks cannot be smaller than obtained marks!");
-        return false;
-    }
+        var totalMarks = parseInt(document.getElementById("totalMarks").value);
+        var obtainedMarks = parseInt(document.getElementById("obtainedMarks").value);
+        // alert("totalmarks:" + totalMarks);
+        if (!ValidInteger(totalMarks) || !ValidInteger(obtainedMarks))
+        {
+            result = "";
+            percentage = "";
+            grade = "";
+            alert("Please fill required fields correctly");
+            EmptyResultFields();
+            return false;
+        }
 
-
-    var percentage = (obtainedMarks / totalMarks) * 100;
-    // console.warn(totalMarks);
-    // console.error(obtainedMarks);
-    // console.info(calculationMethod);
-
-    var result = "";
-    var grade = ""
-
-    var resultMessage = document.getElementById("resultMessage");
-    var percentageMessage = document.getElementById("percentage");
-    var gradeMessage = document.getElementById("grade");
+        if (totalMarks < obtainedMarks)
+        {
+            EmptyResultFields();
+            alert("Total marks cannot be smaller than obtained marks!");
+            return false;
+        }
 
 
+        var percentage = (obtainedMarks / totalMarks) * 100;
+        // console.warn(totalMarks);
+        // console.error(obtainedMarks);
+        // console.info(calculationMethod);
 
-    if (percentage >= 0 && percentage < 33)
-    {
-        result = "Fail";
-        grade = "F";
-    } else if (percentage >= 33 && percentage < 49)
-    {
-        result = "Pass";
-        grade = "D";
-    } else if (percentage >= 50 && percentage < 59)
-    {
-        result = "Pass";
-        grade = "C";
-    } else if (percentage >= 60 && percentage < 69)
-    {
-        result = "Pass";
-        grade = "B";
-    } else if (percentage >= 70 && percentage < 79)
-    {
-        result = "Pass";
-        grade = "B+";
-    }
-    else if (percentage >= 80 && percentage < 89)
-    {
-        result = "Pass";
-        grade = "A";
-    } else if (percentage >= 90)
-    {
-        result = "Distinction";
-        grade = "A+";
+        var result = "";
+        var grade = ""
+
+        var resultMessage = document.getElementById("resultMessage");
+        var percentageMessage = document.getElementById("percentage");
+        var gradeMessage = document.getElementById("grade");
+
+        if (percentage >= 0 && percentage < 33)
+        {
+            result = "Fail";
+            grade = "F";
+        } else if (percentage >= 33 && percentage < 49)
+        {
+            result = "Pass";
+            grade = "D";
+        } else if (percentage >= 50 && percentage < 59)
+        {
+            result = "Pass";
+            grade = "C";
+        } else if (percentage >= 60 && percentage < 69)
+        {
+            result = "Pass";
+            grade = "B";
+        } else if (percentage >= 70 && percentage < 79)
+        {
+            result = "Pass";
+            grade = "B+";
+        }
+        else if (percentage >= 80 && percentage < 89)
+        {
+            result = "Pass";
+            grade = "A";
+        } else if (percentage >= 90)
+        {
+            result = "Distinction";
+            grade = "A+";
+        } else
+        {
+            result = "";
+            grade = "";
+            percentage = "";
+        }
     } else
     {
-        result = "";
-        grade = "";
-        percentage = "";
+        alert("Person is absent!");
     }
     resultMessage.textContent = result;
     percentageMessage.textContent = percentage;

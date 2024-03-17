@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LMS - Grade Calculator</title>
+    <title>LMS - Subject Wise Grading</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="shortcut icon" href="/images/cwm.jpg" type="image/x-icon">
     <script src="/scripts/jquery.js"></script>
@@ -43,10 +43,6 @@
                             <a class="nav-link active" aria-current="page" href="GradeCalculator.html">Grade
                                 Calculator</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="SubjectWiseGrading.html">Subject Wise
-                                Grading</a>
-                        </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -61,12 +57,19 @@
         </nav>
     </header>
     <main class="container">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-lg-6">
-                <fieldset>
-                    <legend>Enter Marks</legend>
-                    <div class="row">
-                        <div class="col-12 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Grade Book
+                        </h3>
+                        <div class="form-group mt-2">
+                            <label class="fw-bold" for="fullName"> <span class="text-danger">*</span>
+                                Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control">
+                        </div>
+                        <div class="form-group mt-2">
                             <label class="fw-bold" for="course">
                                 Course</label>
                             <select name="course" id="course" class="form-select">
@@ -77,7 +80,7 @@
                                 <option value="4">JS</option>
                             </select>
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="form-group mt-2">
                             <label class="fw-bold form-label" for="">
                                 Attendance
                             </label><br>
@@ -91,38 +94,88 @@
                             </label>
 
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="form-group mt-2">
                             <label class="fw-bold" for="totalMarks"> <span class="text-danger">*</span>
                                 Total
                                 Marks</label>
                             <input type="number" id="totalMarks" name="totalMarks" class="form-control">
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="form-group mt-2">
                             <label class="fw-bold" for="obtainedMarks"><span class="text-danger">*</span>
                                 Obtained
                                 Marks</label>
                             <input type="number" id="obtainedMarks" name="obtainedMarks" class="form-control">
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="form-group mt-2">
                             <button class="btn btn-sm btn-primary" id="btnCalculateGrades">Calculate Grades</button>
                         </div>
                     </div>
-                </fieldset>
+                </div>
             </div>
             <div class="col-lg-6">
-                <fieldset>
-                    <legend>Grades</legend>
-                    <div class="row mt-2">
-                        <label id="resultMessage"></label>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Grades Listing
+                        </h3>
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>C#</th>
+                                    <th>HTML</th>
+                                    <th>CSS</th>
+                                    <th>JS</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="text-muted">50</td>
+                                    <td class="text-muted">50</td>
+                                    <td class="text-muted">50</td>
+                                    <td class="text-muted">50</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Waqar Kabir</td>
+                                    <td>40</td>
+                                    <td>43</td>
+                                    <td>38</td>
+                                    <td>49</td>
+                                    <td>
+                                        <a data-id="1" data-name="Waqar Kabir" href="#"
+                                            class="btn btn-warning btn-smaller text-uppercase p-1 m-0 js-select">Select</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Khuram</td>
+                                    <td colspan="4">
+                                        <div class="alert alert-danger p-1 m-0">Absent</div>
+                                    </td>
+                                    <td>
+                                        <a href="#"
+                                            class="btn btn-warning btn-smaller text-uppercase p-1 m-0 js-select">Select</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ali</td>
+                                    <td>38</td>
+                                    <td>45</td>
+                                    <td>48</td>
+                                    <td class="text-danger">15</td>
+                                    <td>
+                                        <a href="#"
+                                            class="btn btn-warning btn-smaller text-uppercase p-1 m-0 js-select">Select</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="row mt-2">
-                        <label id="percentage"></label>
-                    </div>
-                    <div class="row mt-2">
-                        <label id="grade"></label>
-                    </div>
-                </fieldset>
+                </div>
             </div>
+        </div>
         </div>
     </main>
     <footer></footer>
@@ -131,7 +184,18 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script src="/scripts/grading.js">
+    </script>
+    <script>
+        $(document).ready(function ()
+        {
+            $('.table .js-select').on('click', function (event)
+            {
+                event.preventDefault();
+                var element = $(this);
+                var name = element.data('name');
+                var fullName = document.getElementById('fullName').value = name;
+            });
+        });
     </script>
 </body>
 
